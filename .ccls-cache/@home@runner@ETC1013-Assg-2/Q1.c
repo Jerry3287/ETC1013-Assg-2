@@ -25,6 +25,7 @@ int main()
     int mat2Dim[] = {row, column};
     int **mat2 = matCreate(row, column);
 
+    //get values for the matrix
     printf("Please enter the values for 1st matrix (row by row)\n");
     for (int i = 0; i < mat1Dim[0]; i++)
     {
