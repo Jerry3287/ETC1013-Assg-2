@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int **matCreate(int *matRow, int *matCol);
-void matPrint(int **matrix, int matDim);
+void matPrint(int **matrix, int matDim[2]);
 
 int main()
 {
@@ -66,13 +66,14 @@ int **matCreate(int *matRow, int *matCol)
     return matrix;
 }
 
-void matPrint(int **matrix, int matDim)
+void matPrint(int **matrix, int matDim[2])
 {
-    
+    int row = matDim[0];
+    int column = matDim[1];
   
-    for (int i = 0; i < size[0]; i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < size[1]; j++)
+        for (int j = 0; j < column; j++)
         {
             printf("%d ", matrix[i][j]);
         }
