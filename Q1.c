@@ -61,13 +61,12 @@ int main()
   return 0;
 }
 
-/*
-  *Function: matCreate
-  *Purpose: allocates memory and creates matrix
-  *Param: matRow - size of the row
-  *       matCol - size of the column
-  *Return: matrix
-*/
+/**
+ * matCreate - creates a matrix
+ * @matRow: pointer to row size
+ * @matCol: pointer to column size
+ * returns: pointer to matrix
+ */
 int **matCreate(int *matRow, int *matCol)
 {
   int row, column;
@@ -98,13 +97,12 @@ int **matCreate(int *matRow, int *matCol)
   return matrix;
 }
 
-/*
-  *Function: matPrint
-  *Purpose: prints matrix
-  *Param: matrix - matrix to print
-  *       matDim - dimensions of the matrix
-  *Return: none
-*/
+/**
+ * matPrint - prints a matrix
+ * @matrix: pointer to matrix
+ * @matDim: dimensions of matrix
+ * returns: void
+ */
 void matPrint(int **matrix, int matDim[2])
 {
   int row = matDim[0];
@@ -127,14 +125,14 @@ void matPrint(int **matrix, int matDim[2])
   }
 }
 
-/*
-  *Function: matAdd
-  *Purpose: adds two matrices
-  *Param: matrix1 - first matrix
-  *       matrix2 - second matrix
-  *       matDim - dimensions of the matrix
-  *Return: sum of the two matrices
-*/
+/**
+ * matAdd - adds two matrices
+ * @matrix1: pointer to first matrix
+ * @matrix2: pointer to second matrix
+ * @mat1Size: dimensions of first matrix
+ * @mat2Size: dimensions of second matrix
+ * returns: pointer to resulting matrix
+ */
 int **matAdd(int **matrix1, int **matrix2, int matDim[2], int matDim2[2])
 {
   int row = matDim[0];
@@ -160,14 +158,14 @@ int **matAdd(int **matrix1, int **matrix2, int matDim[2], int matDim2[2])
   return sum;
 }
 
-/*
-  *Function: matSub
-  *Purpose: subtracts two matrices
-  *Param: matrix1 - first matrix
-  *       matrix2 - second matrix
-  *       matDim - dimensions of the matrix
-  *Return: difference of the two matrices
-*/
+/**
+ * matSub - subtracts two matrices
+ * @matrix1: pointer to first matrix
+ * @matrix2: pointer to second matrix
+ * @mat1Size: dimensions of first matrix
+ * @mat2Size: dimensions of second matrix
+ * returns: pointer to resulting matrix
+ */
 int **matSub(int **matrix1, int **matrix2, int matDim[2], int matDim2[2])
 {
   int row = matDim[0];
@@ -193,14 +191,14 @@ int **matSub(int **matrix1, int **matrix2, int matDim[2], int matDim2[2])
   return diff;
 }
 
-/*
-  *Function: matMult
-  *Purpose: multiplies two matrices
-  *Param: matrix1 - first matrix
-  *       matrix2 - second matrix
-  *       matDim - dimensions of the matrix
-  *Return: product of the two matrices
-*/
+/**
+ * matMul - multiplies two matrices
+ * @matrix1: pointer to first matrix
+ * @matrix2: pointer to second matrix
+ * @mat1Size: dimensions of first matrix
+ * @mat2Size: dimensions of second matrix
+ * returns: pointer to resulting matrix
+ */
 int **matMult(int **matrix1, int **matrix2, int matDim[2], int matDim2[2])
 {
   int row = matDim[0];
@@ -231,18 +229,17 @@ int **matMult(int **matrix1, int **matrix2, int matDim[2], int matDim2[2])
   return product;
 }
 
-/*
-  *Function: matFree
-  *Purpose: frees memory
-  *Param: matrix - matrix to free
-  *       matDim - dimensions of the matrix
-  *Return: none
-*/
+/**
+ * matFree - frees memory allocated for matrix
+ * @matrix: pointer to matrix
+ * @matSize: dimensions
+ * returns: void
+ */
 void matFree(int **matrix, int matDim[2])
 {
   int row = matDim[0];
   for (int i = 0; i < row; i++)
     free(matrix[i]);
+
   free(matrix);
-  return;
 }
